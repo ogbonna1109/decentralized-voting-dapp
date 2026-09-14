@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_34-ec28a2a1de38b9330a06913add422c92b94db564",
+  "solcVersion": "0.8.34",
+  "solcLongVersion": "0.8.34+commit.80d5c536",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.16.0"
+  },
+  "userSourceNameMap": {
+    "contracts/voting.sol": "project/contracts/voting.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "osaka",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/voting.sol": {
+        "content": "// SPDX-License-Identifier: UNLICENSED\r\n\r\npragma solidity ^0.8.20;\r\n\r\ncontract voting {\r\n    //State variables\r\n    string public electionName;\r\n\r\n    address public owner;\r\n\r\n    bool public electionActive;\r\n\r\n    //CANDIDATE STRUCT\r\n    struct Candidate {\r\n        uint id;\r\n        string name;\r\n        string image;\r\n        uint age;\r\n        string party;\r\n        uint voteCount;\r\n    }\r\n\r\n    Candidate[] public candidates;\r\n\r\n    mapping(address => bool) public hasVoted;\r\n\r\n    constructor(string memory _electionName) {\r\n        electionName = _electionName;\r\n        owner = msg.sender;\r\n    }\r\n\r\n    //only owner can add candidate\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Only owner can add candidate\");\r\n        _;\r\n    }\r\n\r\n    //add candidate function\r\n    function addCandidate(\r\n        string memory _name,\r\n        string memory _image,\r\n        uint _age,\r\n        string memory _party\r\n    ) public onlyOwner {\r\n        uint candidateId = candidates.length + 1;\r\n        candidates.push(Candidate(candidateId, _name, _image, _age, _party, 0));\r\n    }\r\n\r\n    //vote function\r\n    function vote(uint _candidateId) public {\r\n        require(!hasVoted[msg.sender], \"you have already voted\");\r\n\r\n        require(\r\n            _candidateId > 0 && _candidateId <= candidates.length,\r\n            \"invalid candidate\"\r\n        );\r\n        candidates[_candidateId - 1].voteCount++;\r\n        hasVoted[msg.sender] = true;\r\n    }\r\n\r\n    //start election function\r\n    function startElection() public onlyOwner {\r\n        require(candidates.length > 0, \"Add at least one candidate\");\r\n\r\n        require(!electionActive, \"Election is already active\");\r\n        electionActive = true;\r\n    }\r\n\r\n    //end election function\r\n    function endElection() public onlyOwner {\r\n        require(electionActive, \"Election is not active\");\r\n\r\n        electionActive = false;\r\n    }\r\n\r\n    //get Candidate Count\r\n\r\n    function getCandidateCount() public view returns (uint) {\r\n        return candidates.length;\r\n    }\r\n\r\n    //get winner\r\n\r\n    function getWinner() public view returns (Candidate memory) {\r\n        require(candidates.length > 0, \"No candidates available\");\r\n\r\n        require(!electionActive, \"Election is still active\");\r\n\r\n        Candidate memory winner = candidates[0];\r\n\r\n        for (uint i = 1; i < candidates.length; i++) {\r\n            if (candidates[i].voteCount > winner.voteCount) {\r\n                winner = candidates[i];\r\n            }\r\n        }\r\n\r\n        return winner;\r\n    }\r\n}\r\n"
+      }
+    }
+  }
+}

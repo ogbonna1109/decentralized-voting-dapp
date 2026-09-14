@@ -13,7 +13,7 @@ describe("Voting", function () {
 
         [owner, voter] = await ethers.getSigners();
 
-        voting = await ethers.deployContract("voting", ["2026 FUTO Student Election"]);
+        voting = await ethers.deployContract("voting", ["2027 Nigerian Presidential General Election"]);
     });
 
     // =========================================================
@@ -23,7 +23,7 @@ describe("Voting", function () {
     it("should set the election name correctly", async function () {
 
         expect(await voting.electionName())
-            .to.equal("2026 FUTO Student Election");
+            .to.equal("2027 Nigerian Presidential General Election");
 
     });
 
