@@ -8,29 +8,31 @@ import {
 } from "lucide-react";
 import coatOfArms from "../assets/coat_of_arms.jpg";
 import sidebarBg from "../assets/sidebar_bg.jpg";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
     const navigation = [
-        { name: "Home", icon: Home, active: true },
-        { name: "Vote", icon: Vote, active: false },
-        { name: "Results", icon: BarChart3, active: false },
-        { name: "My Profile", icon: UserRound, active: false },
-        { name: "Help & Support", icon: HelpCircle, active: false },
-        { name: "Settings", icon: Settings, active: false },
+        { name: "Home", icon: Home, path: "/" },
+        { name: "Vote", icon: Vote, path: "/vote" },
+        { name: "Results", icon: BarChart3, path: "/results" },
+        { name: "My Profile", icon: UserRound, path: "/profile" },
+        { name: "Help & Support", icon: HelpCircle, path: "/help" },
+        { name: "Settings", icon: Settings, path: "/settings" },
     ];
+    const location = useLocation();
 
     return (
         <aside className="fixed left-0 top-0 hidden h-screen w-64 flex-col justify-between bg-[#04281E] text-white lg:flex overflow-hidden shadow-2xl z-50">
             {/* Top Section */}
             <div className="relative z-10 flex flex-col px-4 pt-6">
-                
+
                 {/* Brand Header */}
                 <div className="flex flex-col items-center text-center pb-6 border-b border-white/10">
                     {/* Coat of Arms */}
                     <div className="relative mb-3 h-16 w-16 drop-shadow-md">
-                        <img 
-                            src={coatOfArms} 
-                            alt="Nigerian Coat of Arms" 
+                        <img
+                            src={coatOfArms}
+                            alt="Nigerian Coat of Arms"
                             className="h-full w-full object-contain"
                         />
                     </div>
@@ -51,18 +53,16 @@ function Sidebar() {
                         return (
                             <a
                                 key={item.name}
-                                href="#"
-                                className={`group flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
-                                    item.active
-                                        ? "bg-[#057A4E] text-white shadow-lg shadow-emerald-950/40"
-                                        : "text-emerald-100/70 hover:bg-white/10 hover:text-white"
-                                }`}
+                                href={item.path}
+                                className={`group flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${location.pathname === item.path
+                                    ? "bg-[#057A4E] text-white shadow-lg shadow-emerald-950/40"
+                                    : "text-emerald-100/70 hover:bg-white/10 hover:text-white"
+                                    }`}
                             >
-                                <Icon 
-                                    size={19} 
-                                    className={`transition-transform duration-200 group-hover:scale-110 ${
-                                        item.active ? "text-white" : "text-emerald-200/70 group-hover:text-white"
-                                    }`} 
+                                <Icon
+                                    size={19}
+                                    className={`transition-transform duration-200 group-hover:scale-110 ${location.pathname === item.path ? "text-white" : "text-emerald-200/70 group-hover:text-white"
+                                        }`}
                                 />
                                 <span>{item.name}</span>
                             </a>
@@ -75,13 +75,13 @@ function Sidebar() {
             <div className="relative mt-auto w-full pt-20">
                 {/* Background Art (Flag + National Assembly) */}
                 <div className="absolute inset-0 z-0 opacity-45 mix-blend-luminosity">
-                    <img 
-                        src={sidebarBg} 
-                        alt="Nigerian Flag and National Assembly Background" 
+                    <img
+                        src={sidebarBg}
+                        alt="Nigerian Flag and National Assembly Background"
                         className="h-full w-full object-cover object-bottom"
                     />
                 </div>
-                
+
                 {/* Gradient Overlay for subtle depth */}
                 <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#04281E] via-[#04281E]/60 to-transparent" />
 
