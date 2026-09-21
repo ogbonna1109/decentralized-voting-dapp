@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import VotePage from "./pages/VotePage";
 import ResultsPage from "./pages/ResultsPage";
 import ProfilePage from "./pages/ProfilePage";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/vote" element={<VotePage />} />
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );
