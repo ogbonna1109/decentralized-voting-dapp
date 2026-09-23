@@ -17,7 +17,7 @@ function Sidebar() {
         { name: "Results", icon: BarChart3, path: "/results" },
         { name: "My Profile", icon: UserRound, path: "/profile" },
         { name: "Help & Support", icon: HelpCircle, path: "/help" },
-        { name: "Settings", icon: Settings, path: "/settings" },
+
     ];
     const location = useLocation();
 
