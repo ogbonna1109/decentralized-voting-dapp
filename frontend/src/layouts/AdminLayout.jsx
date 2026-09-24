@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import AdminSidebar from "../components/admin/AdminSidebar";
 
 function AdminLayout({ children }) {
@@ -6,7 +7,7 @@ function AdminLayout({ children }) {
             <AdminSidebar />
 
             <div className="lg:ml-64">
-                {children}
+                <Outlet />
             </div>
         </div>
     );

@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import Sidebar from "../components/Sidebar";
 
 function VoterLayout({ children }) {
@@ -6,7 +7,7 @@ function VoterLayout({ children }) {
             <Sidebar />
 
             <div className="lg:ml-64">
-                {children}
+                <Outlet />
             </div>
         </div>
     );
