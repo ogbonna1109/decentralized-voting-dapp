@@ -13,6 +13,7 @@ import AdminPage from "./pages/admin/AdminPage";
 import CandidatesPage from "./pages/admin/CandidatesPage";
 import ElectionControlPage from "./pages/admin/ElectionControlPage";
 import AdminResultsPage from "./pages/admin/AdminResultsPage";
+import SmartContractPage from "./pages/admin/SmartContractPage";
 
 function App() {
   return (
@@ -39,6 +40,10 @@ function App() {
           <Route
             path="/admin/results"
             element={<AdminResultsPage />}
+          />
+          <Route
+            path="/admin/contract"
+            element={<SmartContractPage />}
           />
         </Route>
 
