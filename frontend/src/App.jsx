@@ -12,6 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 import AdminPage from "./pages/admin/AdminPage";
 import CandidatesPage from "./pages/admin/CandidatesPage";
 import ElectionControlPage from "./pages/admin/ElectionControlPage";
+import AdminResultsPage from "./pages/admin/AdminResultsPage";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
           <Route
             path="/admin/election"
             element={<ElectionControlPage />}
+          />
+          <Route
+            path="/admin/results"
+            element={<AdminResultsPage />}
           />
         </Route>
 
