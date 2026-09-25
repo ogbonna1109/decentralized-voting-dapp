@@ -32,9 +32,8 @@ function AdminPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#F5F8F7]">
-            <div className="lg:ml-64">
-                <main className="space-y-6 px-5 py-6 md:px-8">
+        <main className="space-y-6 px-5 py-6 md:px-8">
+
 
                     {/* Page Header */}
                     <div>
@@ -352,9 +351,7 @@ function AdminPage() {
                     </section>
 
                 </main>
-            </div>
-        </div>
     );
 }
 
-export default AdminPage;
+export default AdminPage;

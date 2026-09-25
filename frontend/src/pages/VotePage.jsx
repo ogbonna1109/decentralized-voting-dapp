@@ -1,4 +1,3 @@
-import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { CheckCircle2, ShieldCheck, Vote, Info } from "lucide-react";
 
@@ -31,13 +30,12 @@ const candidates = [
 
 function VotePage() {
     return (
-        <div className="min-h-screen bg-[#F5F8F7]">
-            <Sidebar />
+        <>
+            <Header />
 
-            <div className="lg:ml-64">
-                <Header />
+            <main className="px-5 py-6 md:px-8">
 
-                <main className="px-5 py-6 md:px-8">
+
                     {/* Page heading */}
                     <div className="mb-8">
                         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">
@@ -185,10 +183,11 @@ function VotePage() {
                             </p>
                         </div>
                     </div>
-                </main>
-            </div>
-        </div>
+        </main>
+        </>
     );
 }
 
 export default VotePage;
+
+

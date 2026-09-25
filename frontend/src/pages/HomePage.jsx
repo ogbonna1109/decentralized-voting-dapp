@@ -1,4 +1,3 @@
-import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import ElectionHero from "../components/Hero";
 import StatsCards from "../components/StatCard";
@@ -8,40 +7,31 @@ import Footer from "../components/Footer";
 
 function HomePage() {
     return (
-        <div className="min-h-screen bg-[#F5F8F7]">
+        <>
+            <Header />
 
-            <Sidebar />
-
-            <div className="lg:ml-64">
-
-                <Header />
-
-                <main className="px-4 py-6 md:px-6 lg:px-8">
-
-                    {/* 2-Column Dashboard Layout */}
-                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-
-                        {/* Left Column: Hero, Stats, Candidates */}
-                        <div className="space-y-6 lg:col-span-8 xl:col-span-9">
-                            <ElectionHero />
-                            <StatsCards />
-                            <CandidatesSection />
-                        </div>
-
-                        {/* Right Column: Widgets */}
-                        <div className="lg:col-span-4 xl:col-span-3">
-                            <RightPanelWidgets />
-                        </div>
-
+            <main className="px-4 py-6 md:px-6 lg:px-8">
+                {/* 2-Column Dashboard Layout */}
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+                    {/* Left Column: Hero, Stats, Candidates */}
+                    <div className="space-y-6 lg:col-span-8 xl:col-span-9">
+                        <ElectionHero />
+                        <StatsCards />
+                        <CandidatesSection />
                     </div>
 
-                    {/* Page Footer */}
-                    <Footer />
+                    {/* Right Column: Widgets */}
+                    <div className="lg:col-span-4 xl:col-span-3">
+                        <RightPanelWidgets />
+                    </div>
+                </div>
 
-                </main>
-            </div>
-        </div>
+                {/* Page Footer */}
+                <Footer />
+            </main>
+        </>
     );
 }
+
 
 export default HomePage;

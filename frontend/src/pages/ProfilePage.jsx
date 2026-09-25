@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import {
     UserRound,
     Wallet,
@@ -27,9 +28,12 @@ function ProfilePage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#F5F8F7]">
-            <div className="lg:ml-64">
-                <main className="space-y-6 px-5 py-6 md:px-8">
+        <>
+            <Header />
+
+            <main className="space-y-6 px-5 py-6 md:px-8">
+
+
 
                     {/* Page Header */}
                     <div>
@@ -241,9 +245,10 @@ function ProfilePage() {
                     </section>
 
                 </main>
-            </div>
-        </div>
+        </>
     );
 }
 
 export default ProfilePage;
+
+

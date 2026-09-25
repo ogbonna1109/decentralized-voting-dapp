@@ -6,8 +6,6 @@ import {
     Search,
 } from "lucide-react";
 
-import AdminLayout from "../../layouts/AdminLayout";
-
 function CandidatesPage() {
     const candidates = [
         {
@@ -31,8 +29,8 @@ function CandidatesPage() {
     ];
 
     return (
-        <AdminLayout>
-            <main className="space-y-6 px-5 py-6 md:px-8">
+        <main className="space-y-6 px-5 py-6 md:px-8">
+
 
                 {/* Header */}
                 <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -242,8 +240,7 @@ function CandidatesPage() {
                 </section>
 
             </main>
-        </AdminLayout>
     );
 }
 
-export default CandidatesPage;
+export default CandidatesPage;
