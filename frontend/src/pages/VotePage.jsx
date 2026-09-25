@@ -314,9 +314,21 @@ function VotePage() {
                                     Voting Wallet
                                 </p>
 
-                                <p className="mt-1 font-mono text-xs text-slate-700">
-                                    0x71C7...9A42
-                                </p>
+                                {account ? (
+                                    <p className="mt-1 truncate font-mono text-xs text-slate-700">
+                                        {account}
+                                    </p>
+                                ) : (
+                                    <button
+                                        onClick={connectWallet}
+                                        disabled={connecting}
+                                        className="mt-1 text-xs font-semibold text-[#008751] hover:underline disabled:opacity-50"
+                                    >
+                                        {connecting
+                                            ? "Connecting..."
+                                            : "Connect MetaMask"}
+                                    </button>
+                                )}
                             </div>
                         </div>
 
