@@ -120,3 +120,11 @@ export async function addCandidate(name, image, age, party) {
 
   return transaction;
 }
+
+export async function getElectionStatus() {
+  const contract = await getVotingContract();
+
+  const active = await contract.electionActive();
+
+  return active;
+}

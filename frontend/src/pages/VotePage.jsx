@@ -344,7 +344,8 @@ function VotePage() {
 
                             <button
                                 onClick={handleConfirmVote}
-                                className="flex items-center justify-center gap-2 rounded-lg bg-[#008751] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#006b40]"
+                                disabled={!account}
+                                className="flex items-center justify-center gap-2 rounded-lg bg-[#008751] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#006b40] disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
                             >
                                 Confirm Vote
                                 <CheckCircle2 size={16} />
