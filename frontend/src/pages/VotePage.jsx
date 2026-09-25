@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useWallet from "../hooks/useWallets";
 import {
     CheckCircle2,
     Circle,
@@ -13,6 +14,12 @@ function VotePage() {
     const [selectedCandidate, setSelectedCandidate] = useState(null);
     const [step, setStep] = useState(1);
     const [voteSubmitted, setVoteSubmitted] = useState(false);
+    const {
+        account,
+        connecting,
+        connectWallet,
+    } = useWallet();
+
 
     const candidates = [
         {
