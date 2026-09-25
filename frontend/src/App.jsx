@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage";
 
 import AdminPage from "./pages/admin/AdminPage";
 import CandidatesPage from "./pages/admin/CandidatesPage";
+import ElectionControlPage from "./pages/admin/ElectionControlPage";
 
 function App() {
   return (
@@ -23,10 +24,17 @@ function App() {
           <Route path="results" element={<ResultsPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
+
         {/* Admin routes */}
         <Route element={<AdminLayout />} >
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/admin/candidates" element={<CandidatesPage />} />
+          <Route
+            path="/admin/candidates"
+            element={<CandidatesPage />} />
+          <Route
+            path="/admin/election"
+            element={<ElectionControlPage />}
+          />
         </Route>
 
 
